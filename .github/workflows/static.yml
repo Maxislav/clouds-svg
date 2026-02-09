@@ -1,7 +1,7 @@
 name: Deploy to GitHub Pages
 on:
   push:
-    branches: ["master"] # Убедитесь, что ваша ветка называется main (или измените на master)
+    branches: ["main"] # Убедитесь, что ваша ветка называется main (или измените на master)
 
 permissions:
   contents: read
