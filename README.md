@@ -3,7 +3,7 @@
 ## preview
 
 <p align="center">
-  <img src="public/clouds.GIF" width="400" alt="Демонстрация облаков">
+  <img src="https://github.com/Maxislav/clouds-svg/blob/main/public/clouds.GIF" width="400" alt="Демонстрация облаков">
 </p>
 
 ## example
