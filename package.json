@@ -1,0 +1,18 @@
+{
+  "name": "clouds",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 3200",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "build:github": "tsc && vite build"
+  },
+  "devDependencies": {
+    "@types/node": "^25.2.2",
+    "less": "^4.5.1",
+    "typescript": "~5.9.3",
+    "vite": "^7.3.1"
+  }
+}
