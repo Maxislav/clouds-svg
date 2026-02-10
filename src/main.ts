@@ -7,7 +7,7 @@ interface CloudsOptions {
 }
 
 
-export class Clouds{
+export class Cloud{
     private cloudsContainerList: HTMLElement[] | undefined;
     private childEls: SVGElement[] = [];
 

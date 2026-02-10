@@ -1,4 +1,4 @@
-export declare class Clouds {
+export declare class Cloud {
     private cloudsContainerList;
     private childEls;
     private options;

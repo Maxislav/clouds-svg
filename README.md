@@ -7,15 +7,15 @@
 
 ## Usage
 
-copy
-[clouds.es.d.ts](release/clouds.es.d.ts)
-[clouds.es.js](release/clouds.es.js)
+copy  
+[clouds.es.d.ts](release/clouds.es.d.ts)  
+[clouds.es.js](release/clouds.es.js)  
 to ./lib folder
 
 ```js
-import { Clouds } from '@app/lib/clouds.es.js';
+import { Cloud } from '@app/lib/clouds.es.js';
 
-const cloud = new Clouds({element:'#app',density: 0.6}).init();
+const cloud = new Cloud({element:'#app',density: 0.6}).init();
 
 ```
 ### update 

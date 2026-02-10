@@ -104,5 +104,5 @@ class p {
   }
 }
 export {
-  p as Clouds
+  p as Cloud
 };

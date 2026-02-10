@@ -50,4 +50,4 @@
                         <animate attributeName="cx" values="${e};${e+s}" begin="-${d}s" dur="${c}s" repeatCount="indefinite" ></animate>
                         <animate attributeName="r" values="${t};${o}" dur="${c}s" begin="-${d}s"  repeatCount="indefinite" ></animate>
            </circle>
-        `}}n.Clouds=f,Object.defineProperty(n,Symbol.toStringTag,{value:"Module"})}));
+        `}}n.Cloud=f,Object.defineProperty(n,Symbol.toStringTag,{value:"Module"})}));
