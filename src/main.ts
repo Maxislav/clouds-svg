@@ -20,7 +20,7 @@ export class Cloud {
             ...options,
         };
         this.cloudsAll = this.options.density;
-        const section = document.createElement("section");
+        const section = document.createElement("slot");
         section.innerHTML = html;
         this.cloudsContainerList = [
             section.querySelector(`[\\#cloudsContainer1]`)!,

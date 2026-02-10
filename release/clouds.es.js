@@ -44,15 +44,15 @@ const u = `<div class="clouds">\r
         </div>\r
     </div>\r
 </div>`;
-function i(n, t) {
-  return Math.floor(Math.random() * (t - n + 1)) + n;
+function i(r, t) {
+  return Math.floor(Math.random() * (t - r + 1)) + r;
 }
-function c(n, t, o = 3) {
+function c(r, t, o = 3) {
   let s = 0;
-  for (let r = 0; r < o; r++)
+  for (let n = 0; n < o; n++)
     s += Math.random();
   const e = s / o;
-  return Math.floor(e * (t - n + 1)) + n;
+  return Math.floor(e * (t - r + 1)) + r;
 }
 class p {
   cloudsContainerList;
@@ -64,7 +64,7 @@ class p {
       ...this.options,
       ...t
     }, this.cloudsAll = this.options.density;
-    const o = document.createElement("section");
+    const o = document.createElement("slot");
     o.innerHTML = u, this.cloudsContainerList = [
       o.querySelector("[\\#cloudsContainer1]"),
       o.querySelector("[\\#cloudsContainer2]"),
@@ -95,14 +95,14 @@ class p {
     const t = i(1, 8), o = i(10, 15), s = c(
       50 - 80 * this.cloudsAll,
       50 + 70 * this.cloudsAll
-    ), e = c(1, 20), r = i(40, 30), d = i(
-      r - 10 * this.cloudsAll,
-      r - 20 * this.cloudsAll
+    ), e = c(1, 20), n = i(40, 30), d = i(
+      n - 10 * this.cloudsAll,
+      n - 20 * this.cloudsAll
     ), l = i(10, 20), a = i(0, 20);
     return `
            <circle cx="${s}" cy="20" r="7">
                         <animate attributeName="opacity" values="0;1;1;0.2;0" begin="-${a}s" dur="${l}s" repeatCount="indefinite" ></animate>
-                        <animate attributeName="cy" values="${r};${d}" begin="-${a}s" dur="${l}s" repeatCount="indefinite" ></animate>
+                        <animate attributeName="cy" values="${n};${d}" begin="-${a}s" dur="${l}s" repeatCount="indefinite" ></animate>
                         <animate attributeName="cx" values="${s};${s + e}" begin="-${a}s" dur="${l}s" repeatCount="indefinite" ></animate>
                         <animate attributeName="r" values="${t};${o}" dur="${l}s" begin="-${a}s"  repeatCount="indefinite" ></animate>
            </circle>
