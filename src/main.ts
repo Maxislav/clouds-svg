@@ -95,6 +95,7 @@ export class Cloud {
     }
 }
 
-//(window as any).Clouds = Clouds;
-
-//new Clouds({selector:'#app',density: 0.6}).init()
+if (__MODE__ === "development") {
+    console.log(__MODE__);
+    new Cloud({ element: "#app", density: 0.5 }).init();
+}

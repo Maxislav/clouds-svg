@@ -1,9 +1,23 @@
 # Realistic clouds with svg animation
 
+## Install for development
 
+```cmd
+npm install
+```
 
-## Preview
-[![Clouds Demo](assets/clouds.GIF)](https://maxislav.github.io/clouds-svg/)
+## Development
+
+```cmd
+npm run dev
+```
+
+## Build release
+
+```cmd
+npm run build:release
+```
+
 
 ## Usage
 
@@ -56,3 +70,7 @@ cloud.update({
 </html>
 
 ```
+
+
+## Preview
+[![Clouds Demo](assets/clouds.GIF)](https://maxislav.github.io/clouds-svg/)
