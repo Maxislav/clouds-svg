@@ -4,8 +4,8 @@ export declare class Cloud {
     private options;
     private cloudsAll;
     constructor(options?: Partial<CloudsOptions>);
-    init(): void;
-    update(options?: Partial<CloudsOptions>): void;
+    init(): Cloud;
+    update(options?: Partial<CloudsOptions>): Cloud;
     private cloudsDraw;
     private getCloudBlock;
 }

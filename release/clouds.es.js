@@ -74,15 +74,15 @@ class p {
   init() {
     for (; this.childEls.length; )
       this.childEls.pop().remove();
-    this.cloudsContainerList.forEach((t) => {
+    return this.cloudsContainerList.forEach((t) => {
       this.cloudsDraw(t);
-    });
+    }), this;
   }
   update(t = {}) {
-    this.options = {
+    return this.options = {
       ...this.options,
       ...t
-    }, this.cloudsAll = this.options.density, this.init();
+    }, this.cloudsAll = this.options.density, this.init(), this;
   }
   cloudsDraw(t) {
     const o = "http://www.w3.org/2000/svg";
@@ -92,7 +92,13 @@ class p {
     }
   }
   getCloudBlock() {
-    const t = i(1, 8), o = i(10, 15), s = c(50 - 80 * this.cloudsAll, 50 + 70 * this.cloudsAll), e = c(1, 20), r = i(40, 30), d = i(r - 10 * this.cloudsAll, r - 20 * this.cloudsAll), l = i(10, 20), a = i(0, 20);
+    const t = i(1, 8), o = i(10, 15), s = c(
+      50 - 80 * this.cloudsAll,
+      50 + 70 * this.cloudsAll
+    ), e = c(1, 20), r = i(40, 30), d = i(
+      r - 10 * this.cloudsAll,
+      r - 20 * this.cloudsAll
+    ), l = i(10, 20), a = i(0, 20);
     return `
            <circle cx="${s}" cy="20" r="7">
                         <animate attributeName="opacity" values="0;1;1;0.2;0" begin="-${a}s" dur="${l}s" repeatCount="indefinite" ></animate>
