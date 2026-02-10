@@ -2,16 +2,16 @@ import './style.less';
 import html from './clouds.html?raw'
 import {getRandom, getRandomCenter} from "./helper.ts";
 interface CloudsOptions {
-    selector: string,
+    element: string | HTMLElement,
     density: number,
 }
 
 
-class Clouds{
+export class Clouds{
     private cloudsContainerList: HTMLElement[] | undefined;
     private childEls: SVGElement[] = [];
 
-    private options: CloudsOptions = {selector:'#app', density:1};
+    private options: CloudsOptions = {element:'#app', density:1};
     private cloudsAll: number = 1
 
     constructor(options: Partial<CloudsOptions> = {}) {
@@ -27,7 +27,13 @@ class Clouds{
             section.querySelector(`[\\#cloudsContainer2]`)!,
             section.querySelector(`[\\#cloudsContainer3]`)!
         ]
-        document.querySelector<HTMLDivElement>(this.options.selector)!.appendChild(section);
+
+        if (typeof this.options.element === 'string') {
+            document.querySelector<HTMLDivElement>(this.options.element)!.appendChild(section);
+        } else {
+            this.options.element!.appendChild(section)
+        }
+
     }
 
     public init(){
@@ -81,6 +87,6 @@ class Clouds{
     }
 }
 
-(window as any).Clouds = Clouds;
+//(window as any).Clouds = Clouds;
 
 //new Clouds({selector:'#app',density: 0.6}).init()

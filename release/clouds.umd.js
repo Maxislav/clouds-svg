@@ -1,4 +1,4 @@
-(function(l){typeof define=="function"&&define.amd?define(l):l()})((function(){"use strict";const l=`<div class="clouds">\r
+(function(n,a){typeof exports=="object"&&typeof module<"u"?a(exports):typeof define=="function"&&define.amd?define(["exports"],a):(n=typeof globalThis<"u"?globalThis:n||self,a(n.MyLibrary={}))})(this,(function(n){"use strict";const a=`<div class="clouds">\r
     <div class="clouds__front">\r
         <div>\r
             <svg preserveAspectRatio="none" viewBox="0 0 100 50" xmlns="http://www.w3.org/2000/svg">\r
@@ -43,11 +43,11 @@
             </svg>\r
         </div>\r
     </div>\r
-</div>`;function n(r,t){return Math.floor(Math.random()*(t-r+1))+r}function d(r,t,o=3){let s=0;for(let i=0;i<o;i++)s+=Math.random();const e=s/o;return Math.floor(e*(t-r+1))+r}class u{cloudsContainerList;childEls=[];options={selector:"#app",density:1};cloudsAll=1;constructor(t={}){this.options={...this.options,...t},this.cloudsAll=this.options.density;const o=document.createElement("section");o.innerHTML=l,this.cloudsContainerList=[o.querySelector("[\\#cloudsContainer1]"),o.querySelector("[\\#cloudsContainer2]"),o.querySelector("[\\#cloudsContainer3]")],document.querySelector(this.options.selector).appendChild(o)}init(){for(;this.childEls.length;)this.childEls.pop().remove();this.cloudsContainerList.forEach(t=>{this.cloudsDraw(t)})}update(t={}){this.options={...this.options,...t},this.cloudsAll=this.options.density,this.init()}cloudsDraw(t){const o="http://www.w3.org/2000/svg";for(let s=0;s<50+100*this.cloudsAll/.5;s++){const e=document.createElementNS(o,"g");this.childEls.push(e),e.innerHTML=this.getCloudBlock(),t.appendChild(e)}}getCloudBlock(){const t=n(1,8),o=n(10,15),s=d(50-80*this.cloudsAll,50+70*this.cloudsAll),e=d(1,20),i=n(40,30),f=n(i-10*this.cloudsAll,i-20*this.cloudsAll),c=n(10,20),a=n(0,20);return`
-           <circle cx="${s}" cy="20" r="7">
-                        <animate attributeName="opacity" values="0;1;1;0.2;0" begin="-${a}s" dur="${c}s" repeatCount="indefinite" ></animate>
-                        <animate attributeName="cy" values="${i};${f}" begin="-${a}s" dur="${c}s" repeatCount="indefinite" ></animate>
-                        <animate attributeName="cx" values="${s};${s+e}" begin="-${a}s" dur="${c}s" repeatCount="indefinite" ></animate>
-                        <animate attributeName="r" values="${t};${o}" dur="${c}s" begin="-${a}s"  repeatCount="indefinite" ></animate>
+</div>`;function i(r,t){return Math.floor(Math.random()*(t-r+1))+r}function u(r,t,o=3){let e=0;for(let l=0;l<o;l++)e+=Math.random();const s=e/o;return Math.floor(s*(t-r+1))+r}class f{cloudsContainerList;childEls=[];options={element:"#app",density:1};cloudsAll=1;constructor(t={}){this.options={...this.options,...t},this.cloudsAll=this.options.density;const o=document.createElement("section");o.innerHTML=a,this.cloudsContainerList=[o.querySelector("[\\#cloudsContainer1]"),o.querySelector("[\\#cloudsContainer2]"),o.querySelector("[\\#cloudsContainer3]")],typeof this.options.element=="string"?document.querySelector(this.options.element).appendChild(o):this.options.element.appendChild(o)}init(){for(;this.childEls.length;)this.childEls.pop().remove();this.cloudsContainerList.forEach(t=>{this.cloudsDraw(t)})}update(t={}){this.options={...this.options,...t},this.cloudsAll=this.options.density,this.init()}cloudsDraw(t){const o="http://www.w3.org/2000/svg";for(let e=0;e<50+100*this.cloudsAll/.5;e++){const s=document.createElementNS(o,"g");this.childEls.push(s),s.innerHTML=this.getCloudBlock(),t.appendChild(s)}}getCloudBlock(){const t=i(1,8),o=i(10,15),e=u(50-80*this.cloudsAll,50+70*this.cloudsAll),s=u(1,20),l=i(40,30),p=i(l-10*this.cloudsAll,l-20*this.cloudsAll),c=i(10,20),d=i(0,20);return`
+           <circle cx="${e}" cy="20" r="7">
+                        <animate attributeName="opacity" values="0;1;1;0.2;0" begin="-${d}s" dur="${c}s" repeatCount="indefinite" ></animate>
+                        <animate attributeName="cy" values="${l};${p}" begin="-${d}s" dur="${c}s" repeatCount="indefinite" ></animate>
+                        <animate attributeName="cx" values="${e};${e+s}" begin="-${d}s" dur="${c}s" repeatCount="indefinite" ></animate>
+                        <animate attributeName="r" values="${t};${o}" dur="${c}s" begin="-${d}s"  repeatCount="indefinite" ></animate>
            </circle>
-        `}}window.Clouds=u}));
+        `}}n.Clouds=f,Object.defineProperty(n,Symbol.toStringTag,{value:"Module"})}));
