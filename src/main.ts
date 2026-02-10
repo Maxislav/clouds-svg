@@ -20,9 +20,6 @@ class Clouds{
             ...options
         }
         this.cloudsAll = this.options.density;
-    }
-
-    public init(){
         const section = document.createElement('section');
         section.innerHTML = html;
         this.cloudsContainerList = [
@@ -30,20 +27,31 @@ class Clouds{
             section.querySelector(`[\\#cloudsContainer2]`)!,
             section.querySelector(`[\\#cloudsContainer3]`)!
         ]
-
         document.querySelector<HTMLDivElement>(this.options.selector)!.appendChild(section);
-        this.cloudsContainerList.forEach(cloud => {
+    }
+
+    public init(){
+        while (this.childEls.length) {
+            const lastPoint = this.childEls.pop()!;
+            lastPoint.remove();
+        }
+        this.cloudsContainerList!.forEach(cloud => {
             this.cloudsDraw(cloud);
         })
     }
 
+    public update(options: Partial<CloudsOptions> = {}){
+        this.options = {
+            ...this.options,
+            ...options
+        }
+        this.cloudsAll = this.options.density;
+        this.init()
+    }
+
     private cloudsDraw(el: any) {
         const svgNS = "http://www.w3.org/2000/svg";
-        while (this.childEls.length) {
-            const lastPoint = this.childEls.pop()!;
-            lastPoint.remove();
 
-        }
         for (let i = 0; i < 50 + (100 * this.cloudsAll / 0.5); i++) {
             const child = document.createElementNS(svgNS, "g");
             this.childEls.push(child)
@@ -73,4 +81,6 @@ class Clouds{
     }
 }
 
-(window as any).Clouds = Clouds
+(window as any).Clouds = Clouds;
+
+//new Clouds({selector:'#app',density: 0.6}).init()

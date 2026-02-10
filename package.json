@@ -7,11 +7,15 @@
     "dev": "vite --port 3200",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "build:github": "tsc && vite build"
+    "build:github": "tsc && vite build",
+    "clean": "shx rm -rf release",
+    "copy-release": "shx mkdir -p release && shx cp -r dist/* release",
+    "build:release": "npm run clean && npm run build && npm run copy-release"
   },
   "devDependencies": {
     "@types/node": "^25.2.2",
     "less": "^4.5.1",
+    "shx": "^0.4.0",
     "typescript": "~5.9.3",
     "vite": "^7.3.1"
   }

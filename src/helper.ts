@@ -2,9 +2,9 @@
 export function getRandom (min: number, max: number): number {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-export function getRandomCenter (min: number, max: number): number {
+export function getRandomCenter (min: number, max: number, iterations = 3): number {
     //return Math.floor(Math.random() * (max - min + 1)) + min;
-    const iterations = 3;
+    //const iterations = 5;
     let sum = 0;
 
     for (let i = 0; i < iterations; i++) {
