@@ -34,7 +34,7 @@ const cloud = new Cloud({element:'#app',density: 0.6}).init();
 
 // update
 cloud.update({
-    density: 0.2
+    volume: 0.2
 })
 
 ```
@@ -61,9 +61,9 @@ cloud.update({
 <script type="module">
     import {Cloud} from './clouds.es.js';
 
-    new Cloud({element: '.my-clouds:nth-child(1)', density: 0.2}).init()
-    new Cloud({element: '.my-clouds:nth-child(2)', density: 0.5}).init()
-    new Cloud({element: '.my-clouds:nth-child(3)', density: 0.4}).init()
+    new Cloud({element: '.my-clouds:nth-child(1)', volume: 0.2}).init()
+    new Cloud({element: '.my-clouds:nth-child(2)', volume: 0.5}).init()
+    new Cloud({element: '.my-clouds:nth-child(3)', volume: 0.4}).init()
 </script>
 
 </body>

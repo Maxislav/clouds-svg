@@ -4,14 +4,15 @@ import { getRandom, getRandomCenter } from "./helper.ts";
 
 interface CloudsOptions {
     element: string | HTMLElement;
-    density: number;
+    volume: number;
+    clustering: number;
 }
 
 export class Cloud {
     private cloudsContainerList: HTMLElement[] | undefined;
     private childEls: SVGElement[] = [];
 
-    private options: CloudsOptions = { element: "#app", density: 1 };
+    private options: CloudsOptions = { element: "#app", volume: 1, clustering: 3 };
     private cloudsAll: number = 1;
 
     constructor(options: Partial<CloudsOptions> = {}) {
@@ -19,7 +20,7 @@ export class Cloud {
             ...this.options,
             ...options,
         };
-        this.cloudsAll = this.options.density;
+        this.cloudsAll = this.options.volume;
         const section = document.createElement("slot");
         section.innerHTML = html;
         this.cloudsContainerList = [
@@ -42,8 +43,8 @@ export class Cloud {
             const lastPoint = this.childEls.pop()!;
             lastPoint.remove();
         }
-        this.cloudsContainerList!.forEach((cloud) => {
-            this.cloudsDraw(cloud);
+        this.cloudsContainerList!.forEach((cloud, index) => {
+            this.cloudsDraw(cloud, this.options.clustering+index);
         });
         return this;
     }
@@ -53,30 +54,30 @@ export class Cloud {
             ...this.options,
             ...options,
         };
-        this.cloudsAll = this.options.density;
+        this.cloudsAll = this.options.volume;
         this.init();
         return this;
     }
 
-    private cloudsDraw(el: any) {
+    private cloudsDraw(el: HTMLElement, clustering: number) {
         const svgNS = "http://www.w3.org/2000/svg";
 
         for (let i = 0; i < 50 + (100 * this.cloudsAll) / 0.5; i++) {
             const child = document.createElementNS(svgNS, "g");
             this.childEls.push(child);
-            child.innerHTML = this.getCloudBlock();
+            child.innerHTML = this.getCloudBlock(clustering);
             el.appendChild(child);
         }
     }
 
-    private getCloudBlock() {
+    private getCloudBlock(clustering: number) {
         const r1 = getRandom(1, 8);
         const r2 = getRandom(10, 15);
         const cx1 = getRandomCenter(
             50 - 80 * this.cloudsAll,
             50 + 70 * this.cloudsAll,
         );
-        const dcx2 = getRandomCenter(1, 20);
+        const dcx2 = getRandomCenter(1, 20, clustering);
         const cy1 = getRandom(40, 30);
         const cy2 = getRandom(
             cy1 - 10 * this.cloudsAll,
@@ -97,5 +98,5 @@ export class Cloud {
 
 if (__MODE__ === "development") {
     console.log(__MODE__);
-    new Cloud({ element: "#app", density: 0.5 }).init();
+    new Cloud({ element: "#app", volume: 0.5, clustering: 1 }).init();
 }
