@@ -30,7 +30,7 @@ to your ./lib folder
 ```js
 import { Cloud } from '@app/lib/clouds.es.js';
 
-const cloud = new Cloud({element:'#app',density: 0.6}).init();
+const cloud = new Cloud({element:'#app', volume: 0.6}).init();
 
 // update
 cloud.update({
