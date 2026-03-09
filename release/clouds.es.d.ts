@@ -14,6 +14,7 @@ declare interface CloudsOptions {
     element: string | HTMLElement;
     volume: number;
     clustering: number;
+    noice: number;
 }
 
 export { }

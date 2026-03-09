@@ -44,20 +44,20 @@ const p = `<div class="clouds">\r
         </div>\r
     </div>\r
 </div>`;
-function i(r, o) {
-  return Math.floor(Math.random() * (o - r + 1)) + r;
+function i(n, o) {
+  return Math.floor(Math.random() * (o - n + 1)) + n;
 }
-function d(r, o, t = 3) {
-  let n = 0;
+function d(n, o, t = 3) {
+  let r = 0;
   for (let e = 0; e < t; e++)
-    n += Math.random();
-  const s = n / t;
-  return Math.floor(s * (o - r + 1)) + r;
+    r += Math.random();
+  const s = r / t;
+  return Math.floor(s * (o - n + 1)) + n;
 }
 class f {
   cloudsContainerList;
   childEls = [];
-  options = { element: "#app", volume: 1, clustering: 3 };
+  options = { element: "#app", volume: 1, clustering: 3, noice: 50 };
   cloudsAll = 1;
   constructor(o = {}) {
     this.options = {
@@ -85,14 +85,14 @@ class f {
     }, this.cloudsAll = this.options.volume, this.init(), this;
   }
   cloudsDraw(o, t) {
-    const n = "http://www.w3.org/2000/svg";
-    for (let s = 0; s < 50 + 100 * this.cloudsAll / 0.5; s++) {
-      const e = document.createElementNS(n, "g");
+    const r = "http://www.w3.org/2000/svg";
+    for (let s = 0; s < this.options.noice + this.options.noice * this.cloudsAll / 0.5; s++) {
+      const e = document.createElementNS(r, "g");
       this.childEls.push(e), e.innerHTML = this.getCloudBlock(t), o.appendChild(e);
     }
   }
   getCloudBlock(o) {
-    const t = i(1, 8), n = i(10, 15), s = d(
+    const t = i(1, 8), r = i(10, 15), s = d(
       50 - 80 * this.cloudsAll,
       50 + 70 * this.cloudsAll
     ), e = d(1, 20, o), c = i(40, 30), u = i(
@@ -104,7 +104,7 @@ class f {
                         <animate attributeName="opacity" values="0;1;1;0.2;0" begin="-${a}s" dur="${l}s" repeatCount="indefinite" ></animate>
                         <animate attributeName="cy" values="${c};${u}" begin="-${a}s" dur="${l}s" repeatCount="indefinite" ></animate>
                         <animate attributeName="cx" values="${s};${s + e}" begin="-${a}s" dur="${l}s" repeatCount="indefinite" ></animate>
-                        <animate attributeName="r" values="${t};${n}" dur="${l}s" begin="-${a}s"  repeatCount="indefinite" ></animate>
+                        <animate attributeName="r" values="${t};${r}" dur="${l}s" begin="-${a}s"  repeatCount="indefinite" ></animate>
            </circle>
         `;
   }

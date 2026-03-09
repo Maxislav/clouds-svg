@@ -6,13 +6,14 @@ interface CloudsOptions {
     element: string | HTMLElement;
     volume: number;
     clustering: number;
+    noice: number;
 }
 
 export class Cloud {
     private cloudsContainerList: HTMLElement[] | undefined;
     private childEls: SVGElement[] = [];
 
-    private options: CloudsOptions = { element: "#app", volume: 1, clustering: 3 };
+    private options: CloudsOptions = { element: "#app", volume: 1, clustering: 3, noice: 50 };
     private cloudsAll: number = 1;
 
     constructor(options: Partial<CloudsOptions> = {}) {
@@ -61,8 +62,9 @@ export class Cloud {
 
     private cloudsDraw(el: HTMLElement, clustering: number) {
         const svgNS = "http://www.w3.org/2000/svg";
+        //debugger
 
-        for (let i = 0; i < 50 + (100 * this.cloudsAll) / 0.5; i++) {
+        for (let i = 0; i < this.options.noice + (this.options.noice * this.cloudsAll) / 0.5; i++) {
             const child = document.createElementNS(svgNS, "g");
             this.childEls.push(child);
             child.innerHTML = this.getCloudBlock(clustering);
@@ -98,5 +100,5 @@ export class Cloud {
 
 if (__MODE__ === "development") {
     console.log(__MODE__);
-    new Cloud({ element: "#app", volume: 0.5, clustering: 1 }).init();
+    new Cloud({ element: "#app", volume: 0.5, clustering: 5, noice: 20}).init();
 }
